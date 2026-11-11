@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using FI.AtividadeEntrevista.Validacoes;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace WebAtividadeEntrevista.Models
 {
@@ -66,6 +63,13 @@ namespace WebAtividadeEntrevista.Models
         /// Telefone
         /// </summary>
         public string Telefone { get; set; }
+
+        /// <summary>
+        /// CPF
+        /// </summary>
+        [Required(ErrorMessage = "O CPF é obrigatório.")]
+        [Cpf]
+        public string CPF { get; set; }
 
     }    
 }
