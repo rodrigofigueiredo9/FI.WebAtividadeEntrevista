@@ -11,6 +11,10 @@ namespace FI.AtividadeEntrevista.BLL
 
         private readonly IDaoCliente _daoCliente;
 
+        public BoCliente() : this(new DAL.DaoCliente())
+        {
+        }
+
         public BoCliente(IDaoCliente daoCliente)
         {
             _daoCliente = daoCliente;

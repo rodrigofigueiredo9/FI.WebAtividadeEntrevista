@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using WebAtividadeEntrevista.Models;
+using WebAtividadeEntrevista.Services;
 using WebAtividadeEntrevista.Services.Interfaces;
 
 namespace WebAtividadeEntrevista.Controllers
@@ -12,6 +13,10 @@ namespace WebAtividadeEntrevista.Controllers
     public class ClienteController : Controller
     {
         private readonly IClienteService _clienteService;
+
+        public ClienteController() : this(new ClienteService())
+        {
+        }
 
         public ClienteController(IClienteService clienteService)
         {

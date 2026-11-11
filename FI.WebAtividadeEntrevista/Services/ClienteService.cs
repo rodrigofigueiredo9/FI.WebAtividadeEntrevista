@@ -11,6 +11,10 @@ namespace WebAtividadeEntrevista.Services
     {
         private readonly BoCliente _boCliente;
 
+        public ClienteService() : this(new BoCliente())
+        {
+        }
+
         public ClienteService(BoCliente boCliente)
         {
             _boCliente = boCliente;
