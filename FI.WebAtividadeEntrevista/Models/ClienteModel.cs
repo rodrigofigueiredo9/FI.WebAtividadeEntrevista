@@ -1,8 +1,6 @@
-﻿using System;
+﻿using FI.AtividadeEntrevista.Validacoes;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace WebAtividadeEntrevista.Models
 {
@@ -66,6 +64,18 @@ namespace WebAtividadeEntrevista.Models
         /// Telefone
         /// </summary>
         public string Telefone { get; set; }
+
+        /// <summary>
+        /// CPF
+        /// </summary>
+        [Required(ErrorMessage = "O CPF é obrigatório.")]
+        [Cpf]
+        public string CPF { get; set; }
+
+        /// <summary>
+        /// Beneficiários do cliente (gravados junto com o cliente ao clicar em Salvar)
+        /// </summary>
+        public List<BeneficiarioModel> Beneficiarios { get; set; } = new List<BeneficiarioModel>();
 
     }    
 }

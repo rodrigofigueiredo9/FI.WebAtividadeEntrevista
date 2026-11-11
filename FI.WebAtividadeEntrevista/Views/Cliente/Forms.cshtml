@@ -1,18 +1,24 @@
 ﻿
 <form id="formCadastro" method="post">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="form-group">
                 <label for="Nome">Nome:</label>
                 <input required="required" type="text" class="form-control" id="Nome" name="Nome" placeholder="Ex.: João" maxlength="50">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Sobrenome">Sobrenome:</label>
+                <input required="required" type="text" class="form-control" id="Sobrenome" name="Sobrenome" placeholder="Ex.: da Silva" maxlength="255">
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="Sobrenome">Sobrenome:</label>
-                <input required="required" type="text" class="form-control" id="Sobrenome" name="Sobrenome" placeholder="Ex.: da Silva" maxlength="255">
+                <label for="CPF">CPF:</label>
+                <input required="required" type="text" class="form-control" id="CPF" name="CPF" placeholder="Ex.: 010.011.111-00" maxlength="14" data-mascara="cpf" inputmode="numeric" autocomplete="off">
             </div>
         </div>
         <div class="col-md-6">
@@ -74,6 +80,7 @@
 
     <div class="row">
         <div class="col-lg-12">
+            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalBeneficiarios">Beneficiários</button>
             <div class="pull-right">
                 <button type="submit" class="btn btn-sm btn-success">Salvar</button>
                 @Html.ActionLink("Voltar", "Index", "Cliente", new { }, new { @class = "btn btn-sm btn-danger" })
@@ -83,3 +90,49 @@
 
 
 </form>
+
+<div id="modalBeneficiarios" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Beneficiários</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="BeneficiarioCPF">CPF:</label>
+                            <input type="text" class="form-control" id="BeneficiarioCPF" placeholder="Ex.: 010.011.111-00" maxlength="14" data-mascara="cpf">
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label for="BeneficiarioNome">Nome:</label>
+                            <input type="text" class="form-control" id="BeneficiarioNome" placeholder="Ex.: Maria" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label>&nbsp;</label>
+                            <button type="button" id="btnIncluirBeneficiario" class="btn btn-success btn-block">Incluir</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mensagemBeneficiario" class="text-danger" style="display: none;"></div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>CPF</th>
+                            <th>Nome</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="gridBeneficiarios"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
