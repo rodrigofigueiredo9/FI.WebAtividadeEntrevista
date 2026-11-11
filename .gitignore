@@ -265,6 +265,9 @@ ServiceFabricBackup/
 *.mdf
 *.ldf
 *.ndf
+# Exceção: banco de dados da aplicação (LocalDB 2019), necessário para executar o projeto
+!FI.WebAtividadeEntrevista/App_Data/BancoDeDados.mdf
+!FI.WebAtividadeEntrevista/App_Data/BancoDeDados_log.ldf
 
 # Business Intelligence projects
 *.rdl.data
