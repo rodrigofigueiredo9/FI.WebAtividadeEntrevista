@@ -8,9 +8,6 @@
     - FI_SP_IncClienteV2, FI_SP_AltCliente, FI_SP_ConsCliente e FI_SP_PesqCliente: passam a gravar/retornar o CPF
     - FI_SP_VerificaCliente: recebe o @ID do cliente a ser desconsiderado (alteração)
     - FI_SP_DelCliente: não existia no banco; é criada (vazia) e em seguida alterada
-
-    Os scripts originais de criação das procedures (DAL\Clientes\Procedures) foram mantidos sem alteração.
-    Script idempotente: pode ser executado mais de uma vez sem efeitos colaterais.
 */
 
 IF COL_LENGTH('dbo.CLIENTES', 'CPF') IS NULL
