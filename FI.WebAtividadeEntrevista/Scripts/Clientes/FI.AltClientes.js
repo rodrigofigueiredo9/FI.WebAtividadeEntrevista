@@ -11,6 +11,7 @@ $(document).ready(function () {
         $('#formCadastro #Logradouro').val(obj.Logradouro);
         $('#formCadastro #Telefone').val(obj.Telefone);
         $('#formCadastro #CPF').val(obj.CPF);
+        FI.Beneficiarios.carregar(obj.Beneficiarios);
     }
 
     $('#formCadastro').submit(function (e) {
@@ -25,7 +26,8 @@ $(document).ready(function () {
         $.ajax({
             url: urlPost,
             method: "POST",
-            data: {
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({
                 "NOME": $(this).find("#Nome").val(),
                 "CEP": $(this).find("#CEP").val(),
                 "Email": $(this).find("#Email").val(),
@@ -35,8 +37,9 @@ $(document).ready(function () {
                 "Cidade": $(this).find("#Cidade").val(),
                 "Logradouro": $(this).find("#Logradouro").val(),
                 "Telefone": $(this).find("#Telefone").val(),
-                "CPF": $(this).find("#CPF").val()
-            },
+                "CPF": $(this).find("#CPF").val(),
+                "Beneficiarios": FI.Beneficiarios.lista
+            }),
             error:
             function (r) {
                 if (r.status == 400)

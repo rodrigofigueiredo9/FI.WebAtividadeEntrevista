@@ -31,6 +31,7 @@ namespace FI.WebAtividadeEntrevista
 
             bundles.Add(new ScriptBundle("~/bundles/clientes").Include(
                       "~/Scripts/Common/FI.Cpf.js",
+                      "~/Scripts/Clientes/FI.Beneficiarios.js",
                       "~/Scripts/Clientes/FI.Clientes.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/listClientes").Include(
@@ -38,6 +39,7 @@ namespace FI.WebAtividadeEntrevista
 
             bundles.Add(new ScriptBundle("~/bundles/altClientes").Include(
                       "~/Scripts/Common/FI.Cpf.js",
+                      "~/Scripts/Clientes/FI.Beneficiarios.js",
                       "~/Scripts/Clientes/FI.AltClientes.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
