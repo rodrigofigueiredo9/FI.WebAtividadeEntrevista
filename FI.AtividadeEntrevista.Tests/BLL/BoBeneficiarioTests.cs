@@ -244,5 +244,31 @@ namespace FI.AtividadeEntrevista.Tests.BLL
         }
 
         #endregion
+
+        #region ExcluirDoCliente
+
+        [TestMethod]
+        public void ExcluirDoCliente_DeveExcluirSomenteOsBeneficiariosDoCliente()
+        {
+            _dao.AdicionarExistente(1, IdCliente, "00000000191", "Beneficiário João");
+            _dao.AdicionarExistente(2, IdCliente, "00000000272", "Beneficiário José");
+            _dao.AdicionarExistente(3, IdOutroCliente, "00000000353", "Beneficiário Maria");
+
+            _bo.ExcluirDoCliente(IdCliente);
+
+            Assert.AreEqual(0, _dao.Listar(IdCliente).Count);
+            Assert.AreEqual(1, _dao.Listar(IdOutroCliente).Count);
+            CollectionAssert.AreEquivalent(new List<long> { 1, 2 }, _dao.Excluidos);
+        }
+
+        [TestMethod]
+        public void ExcluirDoCliente_SemBeneficiarios_NaoDeveExcluirNada()
+        {
+            _bo.ExcluirDoCliente(IdCliente);
+
+            Assert.AreEqual(0, _dao.Excluidos.Count);
+        }
+
+        #endregion
     }
 }

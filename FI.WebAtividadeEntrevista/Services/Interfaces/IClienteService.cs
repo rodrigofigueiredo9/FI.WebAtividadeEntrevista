@@ -9,6 +9,7 @@ namespace WebAtividadeEntrevista.Services.Interfaces
         long Incluir(ClienteModel model);
         void Alterar(ClienteModel model);
         ClienteModel Consultar(long id);
+        void Excluir(long id);
         List<Cliente> Pesquisar(int iniciarEm, int quantidade, string campoOrdenacao, bool crescente, out int qtd);
     }
 }

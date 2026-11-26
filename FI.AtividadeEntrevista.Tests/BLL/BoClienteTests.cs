@@ -164,5 +164,21 @@ namespace FI.AtividadeEntrevista.Tests.BLL
         }
 
         #endregion
+
+        #region Excluir
+
+        [TestMethod]
+        public void Excluir_DeveRemoverSomenteOClienteInformado()
+        {
+            _dao.AdicionarExistente(1, "00000000191");
+            _dao.AdicionarExistente(2, "00000000272");
+
+            _bo.Excluir(1);
+
+            Assert.IsNull(_dao.Consultar(1));
+            Assert.IsNotNull(_dao.Consultar(2));
+        }
+
+        #endregion
     }
 }

@@ -73,6 +73,15 @@ namespace WebAtividadeEntrevista.Services
             return model;
         }
 
+        public void Excluir(long id)
+        {
+            if (_boCliente.Consultar(id) == null)
+                throw new RegraNegocioException("Cliente não encontrado.");
+
+            _boBeneficiario.ExcluirDoCliente(id);
+            _boCliente.Excluir(id);
+        }
+
         public List<Cliente> Pesquisar(int iniciarEm, int quantidade, string campoOrdenacao, bool crescente, out int qtd)
         {
             return _boCliente.Pesquisa(iniciarEm, quantidade, campoOrdenacao, crescente, out qtd);
