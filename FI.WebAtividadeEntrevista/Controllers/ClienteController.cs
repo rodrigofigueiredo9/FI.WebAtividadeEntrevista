@@ -70,6 +70,21 @@ namespace WebAtividadeEntrevista.Controllers
             return Json("Cadastro alterado com sucesso");
         }
 
+        [HttpPost]
+        public JsonResult Excluir(long id)
+        {
+            try
+            {
+                _clienteService.Excluir(id);
+            }
+            catch (RegraNegocioException ex)
+            {
+                return Erro(ex.Message);
+            }
+
+            return Json("Cliente excluído com sucesso");
+        }
+
         [HttpGet]
         public ActionResult Alterar(long id)
         {

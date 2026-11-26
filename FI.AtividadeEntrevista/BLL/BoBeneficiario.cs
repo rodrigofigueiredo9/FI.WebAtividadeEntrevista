@@ -31,6 +31,15 @@ namespace FI.AtividadeEntrevista.BLL
         }
 
         /// <summary>
+        /// Exclui todos os beneficiários de um cliente (utilizado na exclusão do cliente)
+        /// </summary>
+        public void ExcluirDoCliente(long idCliente)
+        {
+            foreach (Beneficiario beneficiario in _daoBeneficiario.Listar(idCliente))
+                _daoBeneficiario.Excluir(beneficiario.Id);
+        }
+
+        /// <summary>
         /// Valida os beneficiários de um cliente: nome obrigatório, CPF válido e sem CPF repetido.
         /// </summary>
         /// <exception cref="RegraNegocioException">Quando alguma regra for violada</exception>
