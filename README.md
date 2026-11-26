@@ -37,7 +37,7 @@ Coluna `CPF` na tabela `CLIENTES`; `ALTER PROC` das procedures de inclusão, alt
 `002_BENEFICIARIOS.sql` 
 Procedures `FI_SP_IncBenef`, `FI_SP_ConsBenef` e `FI_SP_DelBenef`. A tabela `BENEFICIARIOS` (`ID`, `CPF`, `NOME`, `IDCLIENTE`) e a `FI_SP_AltBenef` já existiam no banco original e foram mantidas.
 
-Os scripts já estão aplicados no `.mdf` versionado. Para aplicá-los em uma cópia do banco original, execute-os na ordem (001 e depois 002). Os scripts originais de criação das procedures, em `DAL/Clientes/Procedures`, foram mantidos sem alteração.
+Os scripts já estão aplicados no `.mdf` versionado. Para aplicá-los em uma cópia do banco original, execute-os na ordem (001 e depois 002). Os scripts de criação das procedures, em `DAL/Clientes/Procedures`, foram mantidos com o conteúdo original, com duas correções de nome: `FI_SP_IncCliente.sql` foi renomeado para `FI_SP_IncClienteV2.sql` (a procedure sempre se chamou `FI_SP_IncClienteV2`) e `FI_SP_DelCliente.sql`, que declarava `CREATE PROC FI_SP_ConsCliente`, passou a declarar `FI_SP_DelCliente`.
 
 ## Testes unitários
 Os testes não acessam o banco: os DAOs são substituídos por implementações em memória (`Fakes`).
